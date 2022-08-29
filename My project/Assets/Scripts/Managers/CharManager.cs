@@ -5,16 +5,10 @@ using UnityEngine;
 public class CharManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] float speed = 3f;
+    [SerializeField][Range(3, 8)] float speed = 5f;
     public Animator PlayerAnimator;
     private float CameraAxisX = 0f;
     [SerializeField][Range(1,2)] float sensitivity = 1f;
-
-    
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -61,8 +55,8 @@ public class CharManager : MonoBehaviour
         CameraAxisX += Input.GetAxis("Mouse X");
         transform.rotation = Quaternion.Euler(0, CameraAxisX * sensitivity, 0);
     }
-    void Speed()
+    void Speed(float num)
     {
-        speed = 5f;
+        speed = num;
     }
 }
